@@ -8,7 +8,7 @@ use Phroute\Phroute\RouteCollector;
 $router = new RouteCollector();
 $router->group(['prefix' => 'ezcode'], function ($router) {
     $router->get('/', [HomeController::class, 'index']);
-    $router->get('/abc', [HomeController::class, 'index']);
+    $router->get('/login', [HomeController::class, 'login']);
     $router->group(['prefix' => 'admin'], function ($router) {
         $router->get('/', [AdminController::class, 'index']);
         $router->group(['prefix' => 'courses'], function ($router) {
