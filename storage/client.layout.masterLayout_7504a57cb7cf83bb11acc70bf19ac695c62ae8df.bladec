@@ -1,0 +1,5 @@
+<?php echo $this->runChild('client/layout/header.php'); ?>
+<?php echo $this->runChild('client.layout.style'); ?>
+ <?php echo $this->yieldContent('content'); ?>
+
+<?php echo $this->runChild('client/layout/footer.php'); ?>

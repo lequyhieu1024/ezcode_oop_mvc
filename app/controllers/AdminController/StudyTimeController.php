@@ -2,9 +2,10 @@
 
 namespace App\Controllers\AdminController;
 
+use App\Controllers\ClientController\BaseController;
 use App\Models\AdminModel\StudyTime;
 
-class StudyTimeController
+class StudyTimeController extends BaseController
 {
     protected $stdTime;
     public function __construct()
@@ -14,34 +15,31 @@ class StudyTimeController
     public function listStdTime()
     {
         $stdTime = $this->stdTime->all();
-        include('../../views/admin/stdTime/alllotrinh.php');
+        $this->render('admin.stdtime.list-stdtime', compact('stdTime'));
     }
     public function addStdTime()
     {
-        include('../../views/admin/stdTime/addlotrinh.php');
+        $this->render('admin.stdtime.add-stdtime');
         if (isset($_POST['addlotrinh'])) {
             $thoi_gian = $_POST['thoi_gian'];
             $this->stdTime->add($thoi_gian);
-            echo '<h2 style="color: red">Thêm thành công!</h2>';
+            header("location:" . ADMIN_URL . "stdtimes/list-stdtime");
         }
     }
-    public function editStdTime()
+    public function editStdTime($id)
     {
-        $id = $_GET['id'];
         $stdTime = $this->stdTime->detail($id);
-        include('../../views/admin/stdTime/editlotrinh.php');
+        $this->render('admin.stdtime.edit-stdtime', compact('stdTime'));
         if (isset($_POST['editlotrinh'])) {
             $thoi_gian = $_POST['thoi_gian'];
             $id_lo_trinh = $_POST['id_lo_trinh'];
-            $id_khoa_hoc = $_POST['id_khoa_hoc'];
             $this->stdTime->edit($id_lo_trinh, $thoi_gian);
-            header("location:index.php?url=list-study-time");
+            header("location:" . ADMIN_URL . "stdtimes/list-stdtime");
         }
     }
-    public function deleteStdTime()
+    public function deleteStdTime($id)
     {
-        $id = $_GET['id'];
         $this->stdTime->delete($id);
-        header("location:index.php?url=list-study-time");
+        header("location:" . ADMIN_URL . "stdtimes/list-stdtime");
     }
 }

@@ -1,0 +1,9 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('content'); ?>
+<?php 
+foreach ($contacts as $row) :
+ print_r($row);
+endforeach
+ ?>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('admin.layout.masterLayout'); } ?>

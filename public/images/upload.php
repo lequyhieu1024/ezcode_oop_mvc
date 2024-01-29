@@ -1,5 +1,5 @@
 <?php
-$target_dir = "public/images/"; // Đường dẫn thư mục lưu trữ tệp tải lên
+$target_dir = PATH_IMG; // Đường dẫn thư mục lưu trữ tệp tải lên
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]); // Đường dẫn đầy đủ của tệp tải lên
 $uploadOk = 1; // Biến kiểm tra lỗi
 
@@ -28,7 +28,7 @@ if (!in_array($fileExtension, $allowedExtensions)) {
 if ($uploadOk == 0) {
     echo "Tệp của bạn không được tải lên.";
 
-// Nếu mọi thứ đều ổn, cố gắng tải lên tệp
+    // Nếu mọi thứ đều ổn, cố gắng tải lên tệp
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "Tệp " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " đã được tải lên thành công.";
@@ -36,4 +36,3 @@ if ($uploadOk == 0) {
         echo "Đã xảy ra lỗi khi tải lên tệp.";
     }
 }
-?>

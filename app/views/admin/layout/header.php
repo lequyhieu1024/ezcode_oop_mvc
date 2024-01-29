@@ -7,30 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Admin</title>
   <!-- css link -->
-  <link rel="stylesheet" href="dist/css/index.css">
-  <!-- boostrap link -->
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
-  <!-- summernote -->
-  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
-  <!-- Favicon icon -->
-  <link rel="icon" type="dist/img/logo2.png" sizes="16x16" href="dist/img/logo2.png">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -88,8 +65,8 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index.php" class="brand-link">
-        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <a href="<?= BASE_URL ?>admin" class="brand-link">
+        <img src="<?= BASE_URL ?>public/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">admin</span>
       </a>
 
@@ -98,10 +75,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="dist/img/logo2.png" class="img-circle elevation-2" alt="User Image" style="width: 40px;">
+            <img src="<?= BASE_URL ?>/public/admin/dist/img/logo2.png" class="img-circle elevation-2" alt="User Image" style="width: 40px;">
           </div>
           <div class="info">
-            <a href="index.php" class="d-block">Nhóm 7</a>
+            <a href="<?= BASE_URL ?>" class="d-block">Về trang client</a>
           </div>
         </div>
 
@@ -132,7 +109,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="index.php?act=qlkhdadangky" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>registedcourse/list-course" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Tất cả khóa học</p>
                   </a>
@@ -149,13 +126,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="index.php?url=list-cat" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>categories/list-cat" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Tất cả danh mục</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?url=add-cat" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>categories/add-cat" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Thêm danh mục</p>
                   </a>
@@ -172,13 +149,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="index.php?url=list-course" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>courses/list-course" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Tất cả khóa học</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?url=add-course" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>courses/add-course" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Thêm khóa học</p>
                   </a>
@@ -195,13 +172,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="index.php?url=list-study-time" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>stdtimes/list-stdtime" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Tất cả lộ trình</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?url=add-study-time" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>stdtimes/add-stdtime" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Thêm lộ trình</p>
                   </a>
@@ -218,13 +195,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="index.php?url=list-study-time-course" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>stdtimecourses/list-stdtime-course" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Tất cả lộ trình khóa học</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?url=add-study-time-course" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>stdtimecourses/add-stdtime-course" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Thêm lộ trình khóa học</p>
                   </a>
@@ -241,21 +218,15 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="index.php?url=list-account-admin" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>accounts/list-accounts-admin" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Tất cả tài khoản QTV</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?url=list-account-student" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>accounts/list-accounts-student" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Tất cả tài khoản HV</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="index.php?act=addtaikhoan" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Tạo tài khoản</p>
                   </a>
                 </li>
               </ul>
@@ -270,7 +241,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="index.php?url=list-comment" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>comments/list-comments" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Tất cả bình luận</p>
                   </a>
@@ -278,7 +249,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a href="index.php?url=list-rate" class="nav-link">
+              <a href="<?= ADMIN_URL ?>comments/list-rates" class="nav-link">
                 <i class="nav-icon"></i>
                 <p>
                   Đánh giá
@@ -296,13 +267,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="index.php?url=list-teacher" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>teachers/list-teacher" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Tất cả giảng viên</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?url=add-teacher" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>teachers/add-teacher" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Thêm giảng viên</p>
                   </a>
@@ -319,13 +290,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="index.php?url=list-promotional" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>promotionals/list-promotional" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Khuyến mãi đang hoạt động</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?url=add-promotional" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>promotionals/add-promotional" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Tạo CT khuyến mại mới </p>
                   </a>
@@ -333,7 +304,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a href="?url=allrole" class="nav-link">
+              <a href="#" class="nav-link">
                 <i class="nav-icon"></i>
                 <p>
                   Quyền người truy cập
@@ -342,7 +313,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="?url=list-role" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>roles/list-role" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Quyền người truy cập hiện có</p>
                   </a>
@@ -350,7 +321,7 @@
               </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="?url=add-role" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>roles/add-role" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Thêm quyền người truy cập</p>
                   </a>
@@ -367,7 +338,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="index.php?url=list-contact" class="nav-link">
+                  <a href="<?= ADMIN_URL ?>contacts/list-contact" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Liên hệ từ khách hàng</p>
                   </a>

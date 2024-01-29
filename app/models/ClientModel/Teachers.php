@@ -17,4 +17,9 @@ class Teachers extends BaseModel
         $sql = "SELECT * FROM giang_vien";
         return $this->dataProcess($sql);
     }
+    public function detail($id)
+    {
+        $sql = "SELECT * FROM giang_vien WHERE id_giang_vien = $id";
+        return $this->dataProcess($sql, false);
+    }
 }

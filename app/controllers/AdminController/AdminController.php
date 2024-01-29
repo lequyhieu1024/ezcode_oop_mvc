@@ -2,9 +2,10 @@
 
 namespace App\Controllers\AdminController;
 
+use App\Controllers\ClientController\BaseController;
 use App\Models\AdminModel\Contact;
 
-class AdminController
+class AdminController extends BaseController
 {
     public $contact;
     public function __construct()
@@ -13,22 +14,21 @@ class AdminController
     }
     public function index()
     {
-        echo 'xin chào';
+        $this->render("admin.layout.masterLayout");
     }
     public function listContact()
     {
         $contacts = $this->contact->list();
-        include('../../views/admin/contact/alllienhe.php');
+        $this->render('admin.contact.list-contact', compact('contacts'));
     }
-    public function repContact()
+    public function repContact($id)
     {
-        $contacts = $this->contact->info();
-        include('../../views/admin/contact/ttnguoiguilh.php');
+        $contacts = $this->contact->info($id);
+        $this->render('admin.contact.info-sender', compact('contacts'));
     }
-    public function deleteContact()
+    public function deleteContact($id)
     {
-        $id = $_GET['id'];
         $this->contact->delete($id);
-        header('location: index.php?url=list-contact');
+        header('location: ' . ADMIN_URL . 'contacts/list-contact');
     }
 }

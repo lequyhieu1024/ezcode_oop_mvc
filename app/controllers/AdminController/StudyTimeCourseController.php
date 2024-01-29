@@ -2,11 +2,12 @@
 
 namespace App\Controllers\AdminController;
 
+use App\Controllers\ClientController\BaseController;
 use App\Models\AdminModel\Course;
 use App\Models\AdminModel\StudyTime;
 use App\Models\AdminModel\StudyTimeCourse;
 
-class StudyTimeCourseController
+class StudyTimeCourseController extends BaseController
 {
     public $stdTimeCourse;
     public $stdTime;
@@ -20,39 +21,37 @@ class StudyTimeCourseController
     public function listStdTimeCourse()
     {
         $list = $this->stdTimeCourse->all();
-        include('../../views/admin/stdTimeCourse/allltkh.php');
+        $this->render('admin.stdtimecourse.list-stdtime-course', compact('list'));
     }
     public function addStdTimeCourse()
     {
         $stdTime = $this->stdTime->all();
         $courese = $this->course->list();
-        include('../../views/admin/stdTimeCourse/addltkh.php');
+        $this->render('admin.stdtimecourse.add-stdtime-course', compact('stdTime', 'courese'));
         if (isset($_POST['addltkh'])) {
             $id_lo_trinh = $_POST['id_lo_trinh'];
             $id_khoa_hoc = $_POST['id_khoa_hoc'];
             $this->stdTimeCourse->add($id_lo_trinh, $id_khoa_hoc);
-            echo '<h2 style="color: red">Thêm thành công!</h2>';
+            header("location:" . ADMIN_URL . "stdtimecourses/list-stdtime-course");
         }
     }
-    public function editStdTimeCourse()
+    public function editStdTimeCourse($id)
     {
-        $id = $_GET['id'];
         $list = $this->stdTimeCourse->detail($id);
         $stdTime = $this->stdTime->all();
         $course = $this->course->list();
-        include('../../views/admin/stdTimeCourse/editltkh.php');
+        $this->render('admin.stdtimecourse.edit-stdtime-course', compact('list', 'stdTime', 'course'));
         if (isset($_POST['editltkh'])) {
             $id_ltkh = $_POST['id_lo_trinh_khoa_hoc'];
             $id_lo_trinh = $_POST['id_lo_trinh'];
             $id_khoa_hoc = $_POST['id_khoa_hoc'];
             $this->stdTimeCourse->edit($id_ltkh, $id_lo_trinh, $id_khoa_hoc);
-            header("location:index.php?url=list-study-time-course");
+            header("location:" . ADMIN_URL . "stdtimecourses/list-stdtime-course");
         }
     }
-    public function deleteStdTimeCourse()
+    public function deleteStdTimeCourse($id)
     {
-        $id = $_GET['id'];
         $this->stdTimeCourse->delete($id);
-        header("location:index.php?url=list-study-time-course");
+        header("location:" . ADMIN_URL . "stdtimecourses/list-stdtime-course");
     }
 }

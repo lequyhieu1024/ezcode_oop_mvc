@@ -2,9 +2,10 @@
 
 namespace App\Controllers\AdminController;
 
+use App\Controllers\ClientController\BaseController;
 use App\Models\AdminModel\Comment;
 
-class CommentControlller
+class CommentControlller extends BaseController
 {
     public $comment;
     public function __construct()
@@ -14,18 +15,17 @@ class CommentControlller
     public function listCommentCtl()
     {
         $comment = $this->comment->listComment();
-        include('../../views/admin/comment/allbinhluan.php');
+        $this->render('admin.comment.list-comments', compact('comment'));
     }
     public function listRateCtl()
     {
         $rate = $this->comment->listRate();
         // var_dump($rate);
-        include('../../views/admin/comment/alldanhgia.php');
+        $this->render('admin.comment.list-rates', compact('rate'));
     }
-    public function deleteComment()
+    public function deleteComment($id)
     {
-        $id = $_GET['id'];
         $this->comment->delete($id);
-        header('location: index.php?url=list-comment');
+        header('location: ' . BASE_URL . 'admin/comments/list-comments');
     }
 }

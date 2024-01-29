@@ -2,9 +2,10 @@
 
 namespace App\Controllers\AdminController;
 
+use App\Controllers\ClientController\BaseController;
 use App\Models\AdminModel\Account;
 
-class AccountController
+class AccountController extends BaseController
 {
     protected $account;
 
@@ -15,23 +16,21 @@ class AccountController
     public function listAccountAdmin()
     {
         $result = $this->account->alltaikhoanqtv();
-        require_once 'account/alltaikhoanqtv.php';
+        $this->render('admin.account.list-accounts-admin', compact('result'));
     }
     public function listAccountStudent()
     {
         $result = $this->account->alltaikhoanhv();
-        require_once 'account/alltaikhoanhv.php';
+        $this->render('admin.account.list-accounts-student', compact('result'));
     }
-    public function deleteAccountAdmin()
+    public function deleteAccountAdmin($id)
     {
-        $id_tai_khoan = $_GET['id'];
-        $this->account->delete($id_tai_khoan);
-        header('location: index.php?url=list-account-admin');
+        $this->account->delete($id);
+        header("location:" . BASE_URL . "admin/accounts/list-accounts-admin");
     }
-    public function deleteAccountStudent()
+    public function deleteAccountStudent($id)
     {
-        $id_tai_khoan = $_GET['id'];
-        $this->account->delete($id_tai_khoan);
-        header('location: index.php?url=list-account-student');
+        $this->account->delete($id);
+        header("location:" . BASE_URL . "admin/accounts/list-accounts-student");
     }
 }

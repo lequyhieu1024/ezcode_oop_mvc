@@ -1,0 +1,40 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('content'); ?>    
+ <table class="table">
+
+ <thead>
+
+ <tr>
+
+ <th scope="col">Mã Bình Luận</th>
+ <th scope="col">Tên Tài Khoản</th>
+ <th scope="col">Tên Khóa Học</th>
+ <th scope="col">Nội Dung</th>
+ <th scope="col">Ngày Bình Luận</th>
+ <th scope="col">Thao tác</th>
+ </tr>
+
+ </thead>
+
+ <tbody>
+
+ <?php
+ foreach ($comment as $row) :
+ extract($row); ?>
+ <tr>
+ <th scope="row"><?= $id_binh_luan ?></th>
+ <td><?= $ten_tai_khoan ?></td>
+ <td><?= $ten_khoa_hoc ?></td>
+ <td><?= $noi_dung_binh_luan ?></td>
+ <td><?= $ngay_binh_luan ?></td>
+ <td><a href="<?php echo \htmlentities(BASE_URL??'', ENT_QUOTES, 'UTF-8', false); ?>admin/comments/delete-comment/<?= $id_binh_luan; ?>"><button class="btn btn-danger">Xóa</button></a></td>
+ </tr>
+
+ <?php endforeach; ?>
+
+ </tbody>
+
+ </table>
+<?php $this->stopSection(); ?>
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('admin.layout.masterLayout'); } ?>

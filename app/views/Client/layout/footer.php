@@ -13,14 +13,16 @@
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-md-12 col-lg-4 col-sm-9 col-xs-12 md-mb-2">
-                                <a href="index.html"><h1 class="fredoka-font ls-3 fw-700 text-current font-xxl">Learn IT <span class="d-block font-xsssss ls-1 text-grey-500 open-font ">Online Learning Course</span></h1></a>
+                                <a href="index.html">
+                                    <h1 class="fredoka-font ls-3 fw-700 text-current font-xxl">Learn IT <span class="d-block font-xsssss ls-1 text-grey-500 open-font ">Online Learning Course</span></h1>
+                                </a>
                                 <p class="w-100 mt-5">TrinhVanBo Street, <br>FPTpolytechnic <br> lequyhieu1024@gmail.com</p>
                                 <ul class="list-inline">
-                                <li class="list-inline-item mr-3"><a href="#"><i class="ti-facebook"></i></a></li>
-                                <li class="list-inline-item mr-3"><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                <li class="list-inline-item mr-3"><a href="#"><i class="ti-linkedin"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="ti-instagram"></i></a></li>
-                            </ul>
+                                    <li class="list-inline-item mr-3"><a href="#"><i class="ti-facebook"></i></a></li>
+                                    <li class="list-inline-item mr-3"><a href="#"><i class="ti-twitter-alt"></i></a></li>
+                                    <li class="list-inline-item mr-3"><a href="#"><i class="ti-linkedin"></i></a></li>
+                                    <li class="list-inline-item"><a href="#"><i class="ti-instagram"></i></a></li>
+                                </ul>
                             </div>
 
                             <div class="col-md-3 col-lg-2 col-sm-3 col-xs-6 md-mb-2">
@@ -38,10 +40,10 @@
                                 <h5>Source</h5>
                                 <ul>
                                     <li><a href="#">LeQuyHieu</a></li>
-                                    <li><a href="#">HoangCaoHuan</a></li>
-                                    <li><a href="#">NguyenSyAnhTuan</a></li>
+                                    <li><a href="#">qưertyui</a></li>
+                                    <li><a href="#">asdw</a></li>
                                     <li><a href="#">FROM</a></li>
-                                    <li><a href="#">GROUP 7</a></li>
+                                    <li><a href="#">hihi</a></li>
                                 </ul>
                             </div>
 
@@ -65,7 +67,7 @@
 
                         <div class="middle-footer mt-5 pt-4"></div>
                     </div>
-                    
+
                     <div class="col-sm-12 lower-footer pt-0"></div>
                     <div class="col-sm-6 col-xs-12">
                         <p class="copyright-text">© 2023 copyright. All rights reserved.</p>
@@ -77,39 +79,35 @@
             </div>
         </div>
     </div>
-</div>
-        <!-- main content -->
-        <div class="app-footer border-0 shadow-lg">
-            <a href="default.html" class="nav-content-bttn nav-center"><i class="feather-home"></i></a>
-            <a href="default-follower.html" class="nav-content-bttn"><i class="feather-package"></i></a>
-            <a href="default-live-stream.html" class="nav-content-bttn" data-tab="chats"><i class="feather-layout"></i></a>            
-            <a href="#" class="nav-content-bttn sidebar-layer"><i class="feather-layers"></i></a>
-            <a href="default-settings.html" class="nav-content-bttn"><img src="images/female-profile.png" alt="user" class="w30 shadow-xss"></a>
-        </div>
+    </div>
+    <!-- main content -->
+    <div class="app-footer border-0 shadow-lg">
+        <a href="default.html" class="nav-content-bttn nav-center"><i class="feather-home"></i></a>
+        <a href="default-follower.html" class="nav-content-bttn"><i class="feather-package"></i></a>
+        <a href="default-live-stream.html" class="nav-content-bttn" data-tab="chats"><i class="feather-layout"></i></a>
+        <a href="#" class="nav-content-bttn sidebar-layer"><i class="feather-layers"></i></a>
+        <a href="default-settings.html" class="nav-content-bttn"><img src="images/female-profile.png" alt="user" class="w30 shadow-xss"></a>
+    </div>
 
-        <div class="app-header-search">
-            <form action='index.php?redirect=timkiem' class="search-form">
-                <div class="form-group searchbox mb-0 border-0 p-1">
-                    <input type="text" name="search_input" class="form-control border-0" placeholder="Search...">
-                    <i class="input-icon">
-                        <ion-icon name="search-outline" role="img" class="md hydrated" aria-label="search outline"></ion-icon>
-                    </i>
-                    <a href="#" class="ml-1 mt-1 d-inline-block close searchbox-close">
-                        <i class="ti-close font-xs"></i>
-                    </a>
-                </div>
-            </form>
-        </div>
+    <div class="app-header-search">
+        <form action='index.php?redirect=timkiem' class="search-form">
+            <div class="form-group searchbox mb-0 border-0 p-1">
+                <input type="text" name="search_input" class="form-control border-0" placeholder="Search...">
+                <i class="input-icon">
+                    <ion-icon name="search-outline" role="img" class="md hydrated" aria-label="search outline"></ion-icon>
+                </i>
+                <a href="#" class="ml-1 mt-1 d-inline-block close searchbox-close">
+                    <i class="ti-close font-xs"></i>
+                </a>
+            </div>
+        </form>
+    </div>
 
-    </div> 
-    <script src="public/js/plugin.js"></script>
+    </div>
 
-    <script src="public/js/apexcharts.min.js"></script> 
-    <script src="public/js/chart.js"></script> 
-    <script src="public/js/scripts.js"></script>
-    
-</body>
+    </body>
 
 
-<!-- Mirrored from uitheme.net/elomoas/default.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 18 Nov 2023 13:06:49 GMT -->
-</html>
+    <!-- Mirrored from uitheme.net/elomoas/default.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 18 Nov 2023 13:06:49 GMT -->
+
+    </html>

@@ -12,9 +12,8 @@ class Contact extends BaseModel
         $result = $this->dataProcess($sql);
         return $result;
     }
-    public function info()
+    public function info($id_lien_he)
     {
-        $id_lien_he = $_GET['id'];
         $sql = "SELECT * FROM lien_he JOIN tai_khoan ON lien_he.id_tai_khoan = tai_khoan.id_tai_khoan
         WHERE id_lien_he = '$id_lien_he'";
         $result = $this->dataProcess($sql);

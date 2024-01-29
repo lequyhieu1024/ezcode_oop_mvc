@@ -2,9 +2,10 @@
 
 namespace App\Controllers\AdminController;
 
+use App\Controllers\ClientController\BaseController;
 use App\Models\AdminModel\Promotional;
 
-class PromotionalController
+class PromotionalController extends BaseController
 {
     public $promotional;
     public function __construct()
@@ -14,11 +15,11 @@ class PromotionalController
     public function listPromotional()
     {
         $promotional = $this->promotional->list();
-        include('../../views/admin/Promotional/allkhuyenmai.php');
+        $this->render('admin.promotional.list-promotional', compact('promotional'));
     }
     public function addPromotional()
     {
-        include('../../views/admin/promotional/addkhuyenmai.php');
+        $this->render('admin.promotional.add-promotional');
         if (isset($_POST["addkhuyenmai"])) {
             $ten_khuyen_mai = $_POST['ten_khuyen_mai'];
             $ngay_bat_dau = $_POST['ngay_bat_dau'];
@@ -36,11 +37,10 @@ class PromotionalController
             echo '<h2 style="color: red">Thêm thành công!</h2>';
         }
     }
-    public function editPromotional()
+    public function editPromotional($id)
     {
-        $id = $_GET['id'];
         $promotional = $this->promotional->detail($id);
-        include('../../views/admin/promotional/editkhuyenmai.php');
+        $this->render('admin.promotional.edit-promotional', compact('promotional'));
         if (isset($_POST["editkhuyenmai"])) {
             $id_khuyen_mai = $_POST['id_khuyen_mai'];
             $ten_khuyen_mai = $_POST['ten_khuyen_mai'];
@@ -56,13 +56,12 @@ class PromotionalController
                 $avt = "";
             }
             $this->promotional->edit($id_khuyen_mai, $ngay_bat_dau, $ngay_ket_thuc, $ten_khuyen_mai, $noi_dung, $avt);
-            header("location:index.php?url=list-promotional");
+            header("location:" . ADMIN_URL . "promotionals/list-promotional");
         }
     }
-    public function deletePromotional()
+    public function deletePromotional($id)
     {
-        $id = $_GET['id'];
         $this->promotional->delete($id);
-        header("location:index.php?url=list-promotional");
+        header("location:" . ADMIN_URL . "promotionals/list-promotional");
     }
 }
