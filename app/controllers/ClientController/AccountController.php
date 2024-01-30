@@ -36,7 +36,7 @@ class AccountController
                 header('location:index.php');
             } else {
                 echo '<script>alert("Sai thông tin đăng nhập")</script>';
-                echo '<script>window.location.href= "app/views/client/taikhoan/login.php"</script>';
+                echo '<script>window.location.href= "' . BASE_URL . 'login"</script>';
             }
         }
     }
@@ -44,23 +44,23 @@ class AccountController
     {
         include("app/views/client/accounts/register.php");
         if (isset($_POST['register'])) {
-            $success = $err = "";
             $ten_tai_khoan = $_POST['ten_tai_khoan'];
             $email = $_POST['email'];
             $mat_khau = $_POST['mat_khau'];
             $id_role = $_POST['id_role'];
             $xn_mat_khau = $_POST['xn_mat_khau'];
             $checkRegister = $this->account->checkRegister($ten_tai_khoan, $email);
-            if ($mat_khau === $xn_mat_khau && empty($checkRegister)) {
+            // print_r($checkRegister);
+            if ($mat_khau === $xn_mat_khau && $checkRegister['ten_tai_khoan'] !== $ten_tai_khoan && $checkRegister['email'] !== $email) {
                 $this->account->register($ten_tai_khoan, $email, $mat_khau, $id_role);
                 echo '<script>
                     var xacNhan = confirm("Đăng ký thành công. Mời đăng nhập");
                         if(xacNhan){
-                            window.location.href ="app/views/client/taikhoan/login.php"}
+                            window.location.href ="' . BASE_URL . 'login"}
                     </script>';
             } else {
                 echo '<script>alert("Đăng ký tên người dùng,email đã tồn tại hoặc mật khẩu không khớp")</script>';
-                echo '<script> window.location.href ="app/views/client/taikhoan/register.php"</script>';
+                echo '<script> window.location.href ="' . BASE_URL . 'register"</script>';
             }
         }
     }

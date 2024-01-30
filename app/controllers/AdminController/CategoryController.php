@@ -26,7 +26,7 @@ class CategoryController extends BaseController
                 $mo_ta = $_POST['mo_ta'];
                 if ($_FILES['avt']['name'] != "") {
                     $avt = basename($_FILES["avt"]["name"]);
-                    $target_dir = "../../../public/images/";
+                    $target_dir = "public/images/";
                     $target_file = $target_dir . $avt;
                     move_uploaded_file($_FILES["avt"]["tmp_name"], $target_file);
                 } else {
@@ -48,12 +48,13 @@ class CategoryController extends BaseController
             $mo_ta = $_POST['mo_ta'];
             if ($_FILES['avt']['name'] != "") {
                 $avt = basename($_FILES["avt"]["name"]);
-                $target_dir = "../../../public/images/";
+                $target_dir = "public/images/";
                 $target_file = $target_dir . $avt;
                 move_uploaded_file($_FILES["avt"]["tmp_name"], $target_file);
             } else {
                 $avt = "";
             }
+            unlink("public/images/" . $editdm['avt']);
             $ten_danh_muc = $_POST['ten_danh_muc'];
             $this->cat->edit($id_danh_muc, $ten_danh_muc, $mo_ta, $avt, $trang_thai);
             header("location:" . BASE_URL . "admin/categories/list-cat");
@@ -61,6 +62,8 @@ class CategoryController extends BaseController
     }
     public function deleteCat($id)
     {
+        $category = $this->cat->detail($id);
+        unlink("public/images/" . $category['avt']);
         $this->cat->delete($id);
         header("location:" . BASE_URL . "admin/categories/list-cat");
     }

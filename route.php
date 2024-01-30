@@ -38,9 +38,20 @@ $router->group(['prefix' => '/'], function ($router) {
     $router->get('list-contact', [HomeController::class, 'listContact']);
     $router->post('list-contact', [HomeController::class, 'sendContact']);
 
+
     $router->get('course-by-category/{id}', [HomeController::class, 'courseByCategory']);
     $router->get('detail-teacher/{id_giang_vien}', [HomeController::class, 'detailTeacher']);
 
+
+    //seting
+    $router->group(['prefix' => 'settings'], function ($router) {
+        $router->get('/', [HomeController::class, 'setting']);
+        $router->get('myinfo', [HomeController::class, 'myinfo']);
+        $router->get('updateinfo', [HomeController::class, 'updateInfo']);
+        $router->post('updateinfo', [HomeController::class, 'updateInfo']);
+        $router->get('changepassword', [HomeController::class, 'changePassword']);
+        $router->post('changepassword', [HomeController::class, 'changePassword']);
+    });
     //course
 
     $router->get('detail-course/{id_khoa_hoc}/{id_danh_muc}', [CoursesController::class, 'detailCourse']);

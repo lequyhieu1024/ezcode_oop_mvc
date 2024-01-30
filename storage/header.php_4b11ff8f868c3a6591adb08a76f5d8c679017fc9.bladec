@@ -59,7 +59,7 @@
  <div class="nav-caption fw-600 font-xssss text-grey-500"><span></span> Account</div>
  <ul class="mb-3">
  <li class="logo d-none d-xl-block d-lg-block"></li>
- <li><a href="index.php?redirect=default-settings" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i class="font-sm feather-settings mr-3 text-grey-500"></i><span>Cài đặt</span></a></li>
+ <li><a href="<?= BASE_URL ?>settings" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i class="font-sm feather-settings mr-3 text-grey-500"></i><span>Cài đặt</span></a></li>
  <li><?php if (isset($_SESSION['ten_tai_khoan'])) {
  if ($_SESSION['id_role'] == 3) {
  echo '<li><a href="' . BASE_URL . 'admin" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i style="color:green" class="font-sm feather-log-in mr-3 text-green-500"></i><span>Trang QTV</span></a>';
@@ -68,8 +68,8 @@
  }
  echo '<a href="' . BASE_URL . 'logout" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i style="color:red" class="font-sm feather-log-out mr-3 text-red-500"></i><span>Đăng xuất</span></a></li>';
  } else { ?>
- <li><a href="login" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i style="color:green" class="font-sm feather-log-in mr-3 text-green-500"></i><span>Đăng nhập</span></a>
- <a href="register" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i style="color:blue" class="font-sm feather-user-plus mr-3 text-blue-500"></i><span>Đăng ký</span></a>
+ <li><a href="<?= BASE_URL ?>login" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i style="color:green" class="font-sm feather-log-in mr-3 text-green-500"></i><span>Đăng nhập</span></a>
+ <a href="<?= BASE_URL ?>register" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i style="color:blue" class="font-sm feather-user-plus mr-3 text-blue-500"></i><span>Đăng ký</span></a>
  </li>
  <?php }
  ?>
@@ -208,7 +208,7 @@
  <?php
  if (isset($_SESSION['ten_tai_khoan'])) {
  foreach ($info as $tt) : extract($tt); ?>
- <li><a href="<?= BASE_URL ?> myinfo"><img src="<?= PATH_IMG . $avt ?>" alt="user" class="w40 mt--1"></a></li>
+ <li><a href="<?= BASE_URL ?>settings/myinfo"><img src="<?= PATH_IMG . $avt ?>" alt="user" class="w40 mt--1"></a></li>
  <?php endforeach ?>
  <li><a href="#" class="menu-search-icon"><i class="feather-search text-grey-900 font-lg"></i></a></li>
  <?php } else { ?>

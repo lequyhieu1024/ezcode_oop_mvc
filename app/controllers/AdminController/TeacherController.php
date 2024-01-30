@@ -29,7 +29,7 @@ class TeacherController extends BaseController
             $so_dien_thoai = $_POST['so_dien_thoai'];
             if ($_FILES['avt']['name'] != "") {
                 $avt = basename($_FILES["avt"]["name"]);
-                $target_dir = PATH_IMG;
+                $target_dir = "public/images/";
                 $target_file = $target_dir . $avt;
                 move_uploaded_file($_FILES["avt"]["tmp_name"], $target_file);
             } else {
@@ -54,12 +54,14 @@ class TeacherController extends BaseController
             $so_dien_thoai = $_POST['so_dien_thoai'];
             if ($_FILES['avt']['name'] != "") {
                 $avt = basename($_FILES["avt"]["name"]);
-                $target_dir = PATH_IMG;
+                $target_dir = "public/images/";
                 $target_file = $target_dir . $avt;
                 move_uploaded_file($_FILES["avt"]["tmp_name"], $target_file);
             } else {
                 $avt = "";
             }
+            unlink("public/images/" . $teacher['avt']);
+
             $mo_ta = $_POST['mo_ta'];
             $this->teacher->edit($id_giang_vien, $ma_giang_vien, $ten_giang_vien, $email, $avt, $so_dien_thoai, $mo_ta, $nam_sinh);
             header("location:" . ADMIN_URL . "teachers/list-teacher");
@@ -67,6 +69,8 @@ class TeacherController extends BaseController
     }
     public function deleteTeacher($id)
     {
+        $teacher = $this->teacher->detail($id);
+        unlink("public/images/" . $teacher['avt']);
         $this->teacher->delete($id);
         header("location:" . ADMIN_URL . "teachers/list-teacher");
     }

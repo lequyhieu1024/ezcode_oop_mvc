@@ -37,7 +37,7 @@ class CourseController extends BaseController
             $ten_khoa_hoc = $_POST['ten_khoa_hoc'];
             if ($_FILES['avt']['name'] != "") {
                 $avt = basename($_FILES["avt"]["name"]);
-                $target_dir = "../../../public/images/";
+                $target_dir = "public/images/";
                 $target_file = $target_dir . $avt;
                 move_uploaded_file($_FILES["avt"]["tmp_name"], $target_file);
             } else {
@@ -69,7 +69,7 @@ class CourseController extends BaseController
             $ten_khoa_hoc = $_POST['ten_khoa_hoc'];
             if ($_FILES['avt']['name'] != "") {
                 $avt = basename($_FILES["avt"]["name"]);
-                $target_dir = "../../../public/images/";
+                $target_dir = "public/images/";
                 $target_file = $target_dir . $avt;
                 move_uploaded_file($_FILES["avt"]["tmp_name"], $target_file);
             } else {
@@ -79,12 +79,15 @@ class CourseController extends BaseController
             $id_giang_vien = $_POST['id_giang_vien'];
             $id_danh_muc = $_POST['id_danh_muc'];
             $slideshow = $_POST['slideshow'];
+            unlink("public/images/" . $editkh['avt']);
             $this->course->editkhoahoc($id_khoa_hoc, $ten_khoa_hoc, $avt, $tien_hoc, $mo_ta, $trang_thai, $id_giang_vien, $id_danh_muc, $slideshow);
             header("location:" . BASE_URL . "admin/courses/list-course");
         }
     }
     public function deleteCourse($id)
     {
+        $course = $this->course->detail($id);
+        unlink("public/images/" . $course['avt']);
         $this->course->delete($id);
         header("location:" . BASE_URL . "admin/courses/list-course");
     }

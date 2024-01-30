@@ -1,14 +1,16 @@
-
+@extends('client.layout.masterLayout')
+@section('content')
+    
 <div class="middle-sidebar-bottom bg-lightblue theme-dark-bg">
     <div class="middle-sidebar-left">
         <div class="middle-wrap">
             <div class="card w-100 border-0 bg-white shadow-xs p-0 mb-4">
                 <div class="card-body p-4 w-100 bg-current border-0 d-flex rounded-lg">
-                    <a href="index.php?redirect=default-settings" class="d-inline-block mt-2"><i class="ti-arrow-left font-sm text-white"></i></a>
+                    <a href="{{BASE_URL}}settings" class="d-inline-block mt-2"><i class="ti-arrow-left font-sm text-white"></i></a>
                     <h4 class="font-xs text-white fw-600 ml-4 mb-0 mt-2">Change Password</h4>
                 </div>
                 <div class="card-body p-lg-5 p-4 w-100 border-0">
-                    <form action="" method="post">
+                    <form method="post">
                         <div class="row">
                             <div class="col-lg-12 mb-3">
                                 <div class="form-gorup">
@@ -46,3 +48,4 @@
     </div>
 </div>
                 
+@endsection

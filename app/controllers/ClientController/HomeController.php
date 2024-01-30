@@ -124,4 +124,84 @@ class HomeController extends BaseController
         echo '<script>alert("Liên hệ thành công, chờ phản hồi")</script>';
         echo '<script>window.location.href = "index.php"</script>';
     }
+    public function setting()
+    {
+        $sl = $this->course->dem_kh_cua_toi();
+        $danhmuc = $this->categories->alldanhmuc();
+        $top5gv = $this->teacher->top_5_giang_vien();
+        $info = $this->account->myInfo();
+        $myskill = $this->course->myskill();
+        $this->render('client.chucnangphu.settings', compact('sl', 'danhmuc', 'top5gv', 'info', 'myskill'));
+    }
+    public function myinfo()
+    {
+        $sl = $this->course->dem_kh_cua_toi();
+        $danhmuc = $this->categories->alldanhmuc();
+        $top5gv = $this->teacher->top_5_giang_vien();
+        $info = $this->account->myInfo();
+        $info1 = $this->account->myInfo1();
+        $myskill = $this->course->myskill();
+        $this->render('client.accounts.myinfo', compact('sl', 'danhmuc', 'top5gv', 'info1', 'info', 'myskill'));
+    }
+    public function updateInfo()
+    {
+        $sl = $this->course->dem_kh_cua_toi();
+        $danhmuc = $this->categories->alldanhmuc();
+        $top5gv = $this->teacher->top_5_giang_vien();
+        $info = $this->account->myInfo();
+        $info1 = $this->account->myInfo1();
+        $myskill = $this->course->myskill();
+        $info1 = $this->account->myInfo1();
+        $this->render('client.accounts.update-info', compact('sl', 'danhmuc', 'top5gv', 'info1', 'info', 'myskill'));
+
+        if (isset($_POST['changemyinfo'])) {
+            $id_tai_khoan = $_POST['id_tai_khoan'];
+            $ho_va_ten = $_POST['ho_va_ten'];
+            $email = $_POST['email'];
+            $so_dien_thoai = $_POST['so_dien_thoai'];
+            $nam_sinh = $_POST['nam_sinh'];
+            if ($_FILES['avt']['name'] != "") {
+                $avt = basename($_FILES["avt"]["name"]);
+                $target_dir = "public/images/";
+                $target_file = $target_dir . $avt;
+                move_uploaded_file($_FILES["avt"]["tmp_name"], $target_file);
+            } else {
+                $avt = "";
+            }
+            unlink("public/images/" . $info1['avt']);
+            $this->account->changeMyInfo($id_tai_khoan, $ho_va_ten, $email, $nam_sinh, $avt, $so_dien_thoai);
+            echo '<script>alert("Cập nhật thành công")</script>';
+            echo '<script> window.location.href ="' . BASE_URL . 'settings/myinfo"</script>';
+        }
+    }
+    public function changePassword()
+    {
+        $sl = $this->course->dem_kh_cua_toi();
+        $danhmuc = $this->categories->alldanhmuc();
+        $top5gv = $this->teacher->top_5_giang_vien();
+        $info = $this->account->myInfo();
+        $info1 = $this->account->myInfo1();
+        $myskill = $this->course->myskill();
+        $info1 = $this->account->myInfo1();
+        $this->render('client.accounts.changepassword', compact('sl', 'danhmuc', 'top5gv', 'info1', 'info', 'myskill'));
+        if (isset($_POST['changepassword'])) {
+            $id_tai_khoan = $_SESSION['id_tai_khoan'];
+            $mat_khau_old = $_POST['mat_khau_old'];
+            $mat_khau_new = $_POST['mat_khau_new'];
+            $xn_mat_khau = $_POST['xn_mat_khau'];
+            $check = $this->account->checkpassword($id_tai_khoan);
+            if ($check['mat_khau'] == $mat_khau_old) {
+                if ($mat_khau_new == $xn_mat_khau) {
+                    $this->account->changepassword($mat_khau_new, $id_tai_khoan);
+                    echo '<script>alert("Đổi mật khẩu thành công")</script>';
+                } else {
+                    echo '<script>alert("Mật khẩu xác nhận không khớp")</script>';
+                    echo '<script> window.location.href ="' . BASE_URL . 'settings/changepassword"</script>';
+                }
+            } else {
+                echo '<script>alert("Mật khẩu cũ không chính xác")</script>';
+                echo '<script> window.location.href ="' . BASE_URL . 'settings/changepassword"</script>';
+            }
+        }
+    }
 }

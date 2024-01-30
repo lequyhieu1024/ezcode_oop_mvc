@@ -27,7 +27,7 @@ class PromotionalController extends BaseController
             $noi_dung = $_POST['noi_dung'];
             if ($_FILES['avt']['name'] != "") {
                 $avt = basename($_FILES["avt"]["name"]);
-                $target_dir = "../../../public/images/";
+                $target_dir = "public/images/";
                 $target_file = $target_dir . $avt;
                 move_uploaded_file($_FILES["avt"]["tmp_name"], $target_file);
             } else {
@@ -49,18 +49,21 @@ class PromotionalController extends BaseController
             $noi_dung = $_POST['noi_dung'];
             if ($_FILES['avt']['name'] != "") {
                 $avt = basename($_FILES["avt"]["name"]);
-                $target_dir = "../../../public/images/";
+                $target_dir = "public/images/";
                 $target_file = $target_dir . $avt;
                 move_uploaded_file($_FILES["avt"]["tmp_name"], $target_file);
             } else {
                 $avt = "";
             }
+            unlink("public/images/" . $promotional['avt']);
             $this->promotional->edit($id_khuyen_mai, $ngay_bat_dau, $ngay_ket_thuc, $ten_khuyen_mai, $noi_dung, $avt);
             header("location:" . ADMIN_URL . "promotionals/list-promotional");
         }
     }
     public function deletePromotional($id)
     {
+        $promotional = $this->promotional->detail($id);
+        unlink("public/images/" . $promotional['avt']);
         $this->promotional->delete($id);
         header("location:" . ADMIN_URL . "promotionals/list-promotional");
     }

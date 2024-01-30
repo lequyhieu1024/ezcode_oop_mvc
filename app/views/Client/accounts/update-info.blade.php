@@ -1,7 +1,9 @@
-
+@extends('client.layout.masterLayout')
+@section('content')
+    <?php extract($info1) ?>
 <div class="card card-primary">
-    <div class="card-header">
-        <h3 class="card-title">Cập nhật thông tin cá nhân</h3>
+    <div class="alert alert-primary">
+        <h1>Cập nhật thông tin cá nhân</h1>
     </div>
     <form method="post" enctype="multipart/form-data">
         <div class="card-body">
@@ -22,7 +24,7 @@
                 <label for="exampleInputEmail1">Avatar</label>
                 <input type="file" class="form-control" id="exampleInputEmail1" name="avt" style="height: 70px;">
             </div>
-            Ảnh hiện tại: <img style="width:100px;height:80%;" src="public/images/<?=$avt?>" alt="">
+            Ảnh hiện tại: <img style="width:100px;height:80%;" src="<?=PATH_IMG.$avt?>" alt="">
             <div class="form-group">
                 <label for="exampleInputEmail1">Số điện thoại</label>
                 <input type="text" class="form-control" required value="<?=$so_dien_thoai?>" id="exampleInputEmail1" name="so_dien_thoai" placeholder="Số điện thoại tài khoản">
@@ -35,3 +37,4 @@
         </div>
     </form>
 </div>
+@endsection

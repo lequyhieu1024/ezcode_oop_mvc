@@ -18,8 +18,8 @@ class Accounts extends BaseModel
     }
     function checkRegister($ten_tai_khoan, $email)
     {
-        $sql = "SELECT ten_tai_khoan,email FROM tai_khoan WHERE email = '$email' and ten_tai_khoan = '$ten_tai_khoan'";
-        $result = $this->dataProcess($sql);
+        $sql = "SELECT ten_tai_khoan,email FROM tai_khoan WHERE email = '$email' or ten_tai_khoan = '$ten_tai_khoan'";
+        $result = $this->dataProcess($sql, false);
         return $result;
     }
     function myInfo()
@@ -31,8 +31,9 @@ class Accounts extends BaseModel
             return $result;
         }
     }
-    function myInfo1($id_tai_khoan)
+    function myInfo1()
     {
+        $id_tai_khoan = isset($_SESSION['id_tai_khoan']) ? $_SESSION['id_tai_khoan'] : "";
         $sql = "SELECT * FROM tai_khoan WHERE id_tai_khoan = '$id_tai_khoan'";
         $result = $this->dataProcess($sql, false);
         return $result;
