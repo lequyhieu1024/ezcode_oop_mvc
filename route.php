@@ -65,6 +65,9 @@ $router->group(['prefix' => '/'], function ($router) {
 
     $router->get('payment/{id_khoa_hoc}', [PaymentController::class, 'paymentInfomation']);
     $router->post('payment/{id_khoa_hoc}', [PaymentController::class, 'pay']);
+    // $router->get('payment-by-momo', [PaymentController::class, 'payMomo']);
+    // $router->get('payment-by-vnpay', [PaymentController::class, 'payVnpay']);
+
 
     $router->filter('auth', function () {
         if (!isset($_SESSION['id_role'])) {

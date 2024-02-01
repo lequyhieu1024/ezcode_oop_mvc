@@ -55,7 +55,7 @@
         <div class="col-xl-4 col-xxl-3">
             <div class="card overflow-hidden subscribe-widget p-3 mb-3 rounded-xxl border-0 shadow-xss">
                 <div class="card-body p-3 d-block text-left">
-                    <h1 class="display1-size text-current fw-700 mb-4"> $ <?= number_format($khct['tien_hoc'], 0, ".", ",") ?> <span class="font-xssss text-grey-500 fw-500"> / Chưa tính khuyến mại</span></h1>
+                    <h1 class="text-danger fw-700">$ <?= number_format($khct['tien_hoc'], 0, " ", " ") ?> <span class="font-xssss text-grey-500 fw-500"> / Chưa tính khuyến mại</span></h1>
                     <h4 class="pl-35 mb-4 font-xsss fw-600 text-grey-900 position-relative"><i class="feather-bar-chart-2 font-lg text-current position-absolute left-0"></i> Lộ trình học <span class="d-block text-grey-500 mt-1 font-xssss">
                             <?php
                             foreach ($lt as $rows) : extract($rows);
@@ -68,7 +68,7 @@
                     <h4 class="pl-35 mb-4 font-xsss fw-600 text-grey-900 position-relative"><i class="feather-book-open font-lg text-current position-absolute left-0"></i> Chuyên Ngành <span class="d-block text-grey-500 mt-1 font-xssss">Information Technology</span></h4>
                     <h4 class="pl-35 mb-4 font-xsss fw-600 text-grey-900 position-relative"><i class="feather-user font-lg text-current position-absolute left-0"></i> Giảng Viên <span class="d-block text-grey-500 mt-1 font-xssss"><img style="width:20px;" src="<?= PATH_IMG. $khct['avt_gv'] ?>" alt=""> <?= $khct['ma_giang_vien'] ?>-<?= $khct['ten_giang_vien'] ?> </span></h4>
                     <h4 class="pl-35 mb-0 font-xsss fw-600 text-grey-900 position-relative"><i class="feather-award font-lg text-current position-absolute left-0"></i> Kinh Ngiệm Giảng Viên <span class="d-block text-grey-500 mt-1 font-xssss"><?= $khct['mota_gv'] ?> </span></h4>
-                    <a href="<?=BASE_URL?>payment/<?= $id_khoa_hoc ?>" class="bg-primary-gradiant border-0 text-white fw-600 text-uppercase font-xssss float-left rounded-lg d-block mt-4 w-100 p-2 lh-34 text-center ls-3 ">Đăng ký ngay</a>
+                    <a href="<?=BASE_URL?>payment/<?=$khct['id_khoa_hoc']?>" class="bg-primary-gradiant border-0 text-white fw-600 text-uppercase font-xssss float-left rounded-lg d-block mt-4 w-100 p-2 lh-34 text-center ls-3 ">Đăng ký ngay</a>
                 </div>
             </div>
 

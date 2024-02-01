@@ -4,7 +4,7 @@
         <h1>Chi tiết khóa học đã đăng ký</h1><br>
         <div class="group">
             <div class="img">
-                <img style="height:150px" class="img-fluid" src="{{ PATH_IMG. $detail['avt_kh']}}" alt="">
+                <img style="height:180px;width:250px" class="img-fluid" src="{{ PATH_IMG. $detail['avt_kh']}}" alt="">
             </div>
             <div class="group2">
                 <div class="group3">

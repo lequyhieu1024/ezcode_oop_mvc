@@ -83,13 +83,12 @@ class Courses extends BaseModel
     }
     public function khoahoccuatoi($id_tai_khoan)
     {
-        $sql = "SELECT dang_ky_khoa_hoc.pttt,dang_ky_khoa_hoc.lo_trinh,trang_thai.id_trang_thai as id_trang_thai_kh, dang_ky_khoa_hoc.trang_thai,khoa_hoc.id_khoa_hoc,id_dang_ky_khoa_hoc, khoa_hoc.avt as avt_kh,trang_thai.ten_trang_thai, khoa_hoc.ten_khoa_hoc,giang_vien.ma_giang_vien,
+        $sql = "SELECT dang_ky_khoa_hoc.pttt,dang_ky_khoa_hoc.lo_trinh,trang_thai.id_trang_thai as id_trang_thai_kh, dang_ky_khoa_hoc.trang_thai,khoa_hoc.id_khoa_hoc,id_dang_ky_khoa_hoc, khoa_hoc.avt as avt_kh,trang_thai.ten_trang_thai, khoa_hoc.ten_khoa_hoc,
     dang_ky_khoa_hoc.thanh_tien
     FROM dang_ky_khoa_hoc
     JOIN khoa_hoc ON khoa_hoc.id_khoa_hoc = dang_ky_khoa_hoc.id_khoa_hoc
     JOIN tai_khoan ON tai_khoan.id_tai_khoan = dang_ky_khoa_hoc.id_tai_khoan
     JOIN trang_thai ON trang_thai.id_trang_thai = dang_ky_khoa_hoc.trang_thai
-    JOIN giang_vien ON giang_vien.id_giang_vien = dang_ky_khoa_hoc.id_giang_vien
     LEFT JOIN khuyen_mai ON khuyen_mai.id_khuyen_mai = dang_ky_khoa_hoc.id_khuyen_mai
     WHERE dang_ky_khoa_hoc.id_tai_khoan = '$id_tai_khoan'
     ORDER BY trang_thai.id_trang_thai ASC,dang_ky_khoa_hoc.id_dang_ky_khoa_hoc DESC";
@@ -103,16 +102,16 @@ class Courses extends BaseModel
     FROM dang_ky_khoa_hoc
     JOIN khoa_hoc ON khoa_hoc.id_khoa_hoc = dang_ky_khoa_hoc.id_khoa_hoc
     JOIN tai_khoan ON tai_khoan.id_tai_khoan = dang_ky_khoa_hoc.id_tai_khoan
-    JOIN giang_vien ON giang_vien.id_giang_vien = dang_ky_khoa_hoc.id_giang_vien
+    JOIN giang_vien ON giang_vien.id_giang_vien = khoa_hoc.id_giang_vien
     JOIN trang_thai ON trang_thai.id_trang_thai = dang_ky_khoa_hoc.trang_thai
     LEFT JOIN khuyen_mai ON khuyen_mai.id_khuyen_mai = dang_ky_khoa_hoc.id_khuyen_mai
     WHERE dang_ky_khoa_hoc.id_khoa_hoc = '$id_khoa_hoc' AND id_dang_ky_khoa_hoc = $id_dang_ky_khoa_hoc";
         $results = $this->dataProcess($sql, false);
         return $results;
     }
-    public function dangkykhoahoc($id_tai_khoan, $id_khoa_hoc, $id_giang_vien, $thanh_tien, $ngay_dang_ky_hoc, $lo_trinh, $trang_thai, $id_khuyen_mai, $ho_va_ten, $so_dien_thoai, $email, $pttt)
+    public function dangkykhoahoc($id_tai_khoan, $id_khoa_hoc, $thanh_tien, $ngay_dang_ky_hoc, $lo_trinh, $trang_thai, $id_khuyen_mai, $ho_va_ten, $so_dien_thoai, $email, $pttt)
     {
-        $sql = "INSERT INTO dang_ky_khoa_hoc(id_tai_khoan, id_khoa_hoc,id_giang_vien, thanh_tien, ngay_dang_ky_hoc,lo_trinh ,trang_thai ,id_khuyen_mai,ho_va_ten, so_dien_thoai, email, pttt) VALUES ('$id_tai_khoan', '$id_khoa_hoc','$id_giang_vien', '$thanh_tien', '$ngay_dang_ky_hoc','$lo_trinh', '$trang_thai' ,'$id_khuyen_mai','$ho_va_ten', '$so_dien_thoai', '$email','$pttt')";
+        $sql = "INSERT INTO dang_ky_khoa_hoc(id_tai_khoan, id_khoa_hoc, thanh_tien, ngay_dang_ky_hoc,lo_trinh ,trang_thai ,id_khuyen_mai,ho_va_ten, so_dien_thoai, email, pttt) VALUES ('$id_tai_khoan', '$id_khoa_hoc', '$thanh_tien', '$ngay_dang_ky_hoc','$lo_trinh', '$trang_thai' ,'$id_khuyen_mai','$ho_va_ten', '$so_dien_thoai', '$email','$pttt')";
         $this->dataProcess($sql);
     }
     public function myskill()

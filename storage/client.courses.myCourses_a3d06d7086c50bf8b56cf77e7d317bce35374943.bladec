@@ -13,11 +13,7 @@
  <td><img style="width:200px;height:100px" src="public/images/<?= $avt_kh ?>" alt=""></td>
  <td>
  <h1><?= $ten_khoa_hoc ?></h1>
- </td>
- <td><i class="fas fa-clock">:</i> <?= $lo_trinh ?></td>
-
- <td>
- <h2>$ <?= number_format($thanh_tien, 0, ".", ",") ?></h2>
+ <h2>$ <?= number_format($thanh_tien, 0, " ", " ") ?></h2>
  </td>
  <td><a href="detail-my-course/<?= $id_khoa_hoc ?>/<?= $id_dang_ky_khoa_hoc ?>">
  <?php if ($id_trang_thai_kh == 1) { ?> <button class="btn btn-warning"><?= $ten_trang_thai ?>

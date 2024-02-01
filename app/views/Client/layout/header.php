@@ -45,7 +45,7 @@
                         <?php
                         foreach ($danhmuc as $alldanhmuc) :
                             extract($alldanhmuc); ?>
-                            <li><a href="course-by-category/<?= $id_danh_muc ?>" class=" nav-content-bttn open-font" data-tab="chats"><i class="feather-book mr-3"></i><span><?= $ten_danh_muc; ?></span></a></li>
+                            <li><a href="<?= BASE_URL ?>course-by-category/<?= $id_danh_muc ?>" class=" nav-content-bttn open-font" data-tab="chats"><i class="feather-book mr-3"></i><span><?= $ten_danh_muc; ?></span></a></li>
                         <?php endforeach ?>
                     </ul>
                     <div class="nav-caption fw-600 font-xssss text-grey-500"><span>Giảng Viên </span>Kỳ Cựu</div>
@@ -53,7 +53,7 @@
                         <?php
                         foreach ($top5gv as $gv) :
                             extract($gv); ?>
-                            <li><a href="detail-teacher/<?= $id_giang_vien ?>" class="nav-content-bttn open-font pl-2 pb-2 pt-1 h-auto" data-tab="chats"><img src="<?= PATH_IMG . $avt ?>" alt="teacher" class="w40 mr-2"><span> <?= $ma_giang_vien ?> </span></a></li>
+                            <li><a href="<?= BASE_URL ?>detail-teacher/<?= $id_giang_vien ?>" class="nav-content-bttn open-font pl-2 pb-2 pt-1 h-auto" data-tab="chats"><img src="<?= PATH_IMG . $avt ?>" alt="teacher" class="w40 mr-2"><span> <?= $ma_giang_vien ?> </span></a></li>
                         <?php endforeach ?>
                     </ul>
                     <div class="nav-caption fw-600 font-xssss text-grey-500"><span></span> Account</div>

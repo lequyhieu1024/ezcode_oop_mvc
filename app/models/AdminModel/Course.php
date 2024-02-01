@@ -91,7 +91,7 @@ class Course extends BaseModel
     FROM dang_ky_khoa_hoc
     JOIN khoa_hoc ON khoa_hoc.id_khoa_hoc = dang_ky_khoa_hoc.id_khoa_hoc
     JOIN tai_khoan ON tai_khoan.id_tai_khoan = dang_ky_khoa_hoc.id_tai_khoan
-    JOIN giang_vien ON giang_vien.id_giang_vien = dang_ky_khoa_hoc.id_giang_vien
+    JOIN giang_vien ON giang_vien.id_giang_vien = khoa_hoc.id_giang_vien
     JOIN trang_thai ON trang_thai.id_trang_thai = dang_ky_khoa_hoc.trang_thai
     LEFT JOIN khuyen_mai ON khuyen_mai.id_khuyen_mai = dang_ky_khoa_hoc.id_khuyen_mai
     WHERE dang_ky_khoa_hoc.id_dang_ky_khoa_hoc = $id_dang_ky_khoa_hoc";
@@ -106,7 +106,7 @@ class Course extends BaseModel
     JOIN trang_thai ON trang_thai.id_trang_thai = dang_ky_khoa_hoc.trang_thai
     JOIN khoa_hoc ON khoa_hoc.id_khoa_hoc = dang_ky_khoa_hoc.id_khoa_hoc
     LEFT JOIN khuyen_mai ON khuyen_mai.id_khuyen_mai = dang_ky_khoa_hoc.id_khuyen_mai
-    JOIN giang_vien ON giang_vien.id_giang_vien = dang_ky_khoa_hoc.id_giang_vien";
+    JOIN giang_vien ON giang_vien.id_giang_vien = khoa_hoc.id_giang_vien";
         $result = $this->dataProcess($sql);
         return $result;
     }
@@ -118,7 +118,7 @@ class Course extends BaseModel
     JOIN trang_thai ON trang_thai.id_trang_thai = dang_ky_khoa_hoc.trang_thai
     JOIN khoa_hoc ON khoa_hoc.id_khoa_hoc = dang_ky_khoa_hoc.id_khoa_hoc
     LEFT JOIN khuyen_mai ON khuyen_mai.id_khuyen_mai = dang_ky_khoa_hoc.id_khuyen_mai
-    JOIN giang_vien ON giang_vien.id_giang_vien = dang_ky_khoa_hoc.id_giang_vien
+    JOIN giang_vien ON giang_vien.id_giang_vien = khoa_hoc.id_giang_vien
     WHERE dang_ky_khoa_hoc.trang_thai = 1 ";
         $result = $this->dataProcess($sql);
         return $result;
@@ -130,7 +130,7 @@ class Course extends BaseModel
     khoa_hoc.avt as avt_kh FROM dang_ky_khoa_hoc
     JOIN tai_khoan ON tai_khoan.id_tai_khoan = dang_ky_khoa_hoc.id_tai_khoan
     JOIN khoa_hoc ON khoa_hoc.id_khoa_hoc = dang_ky_khoa_hoc.id_khoa_hoc
-    JOIN giang_vien ON giang_vien.id_giang_vien = dang_ky_khoa_hoc.id_giang_vien
+    JOIN giang_vien ON giang_vien.id_giang_vien = khoa_hoc.id_giang_vien
     JOIN trang_thai ON trang_thai.id_trang_thai = dang_ky_khoa_hoc.trang_thai
     LEFT JOIN khuyen_mai ON khuyen_mai.id_khuyen_mai = dang_ky_khoa_hoc.id_khuyen_mai
     WHERE dang_ky_khoa_hoc.trang_thai = 1";
@@ -144,7 +144,7 @@ class Course extends BaseModel
     trang_thai.id_trang_thai as id_trang_thai_kh,khoa_hoc.avt as avt_kh FROM dang_ky_khoa_hoc
     JOIN tai_khoan ON tai_khoan.id_tai_khoan = dang_ky_khoa_hoc.id_tai_khoan
     JOIN khoa_hoc ON khoa_hoc.id_khoa_hoc = dang_ky_khoa_hoc.id_khoa_hoc
-    JOIN giang_vien ON giang_vien.id_giang_vien = dang_ky_khoa_hoc.id_giang_vien
+    JOIN giang_vien ON giang_vien.id_giang_vien = khoa_hoc.id_giang_vien
     JOIN trang_thai ON trang_thai.id_trang_thai = dang_ky_khoa_hoc.trang_thai
     LEFT JOIN khuyen_mai ON khuyen_mai.id_khuyen_mai = dang_ky_khoa_hoc.id_khuyen_mai
     WHERE dang_ky_khoa_hoc.trang_thai = 2";
@@ -157,7 +157,7 @@ class Course extends BaseModel
     trang_thai.id_trang_thai as id_trang_thai_kh,khoa_hoc.avt as avt_kh FROM dang_ky_khoa_hoc
     JOIN tai_khoan ON tai_khoan.id_tai_khoan = dang_ky_khoa_hoc.id_tai_khoan
     JOIN khoa_hoc ON khoa_hoc.id_khoa_hoc = dang_ky_khoa_hoc.id_khoa_hoc
-    JOIN giang_vien ON giang_vien.id_giang_vien = dang_ky_khoa_hoc.id_giang_vien
+    JOIN giang_vien ON giang_vien.id_giang_vien = khoa_hoc.id_giang_vien
     JOIN trang_thai ON trang_thai.id_trang_thai = dang_ky_khoa_hoc.trang_thai
     LEFT JOIN khuyen_mai ON khuyen_mai.id_khuyen_mai = dang_ky_khoa_hoc.id_khuyen_mai
     WHERE dang_ky_khoa_hoc.trang_thai = 3";

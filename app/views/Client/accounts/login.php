@@ -24,7 +24,7 @@
 
         <form action="" method="post">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" required name="ten_tai_khoan" placeholder="Tên tài khoản">
+            <input type="text" class="form-control" autofocus required name="ten_tai_khoan" placeholder="Tên tài khoản">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -42,8 +42,8 @@
           <span></span>
           <div class="row">
             <!-- /.col -->
-            <div class="col-4">
-              <button type="submit" name="login" class="btn btn-primary btn-block">Nhập</button>
+            <div class="col-6">
+              <button type="submit" name="login" class="btn btn-primary btn-block">Đăng Nhập</button>
             </div>
             <!-- /.col -->
           </div>

@@ -11,7 +11,8 @@ class Comments extends BaseModel
         $sql = "SELECT binh_luan.*,tai_khoan.avt as avt_tk,tai_khoan.ten_tai_khoan  FROM binh_luan
     JOIN khoa_hoc ON binh_luan.id_khoa_hoc = khoa_hoc.id_khoa_hoc
     JOIN tai_khoan ON binh_luan.id_tai_khoan = tai_khoan.id_tai_khoan
-    WHERE binh_luan.id_khoa_hoc = '$id_khoa_hoc'";
+    WHERE binh_luan.id_khoa_hoc = '$id_khoa_hoc'
+    ORDER BY binh_luan.ngay_binh_luan DESC";
         $result = $this->dataProcess($sql);
         return $result;
     }

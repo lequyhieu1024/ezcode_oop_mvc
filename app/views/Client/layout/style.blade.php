@@ -5,9 +5,13 @@
 
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="{{ BASE_URL. 'public/css/style.css'}}">
-    <link rel="stylesheet" href="{{BASE_URL.'app/views/admin/plugins/fontawesome-free/css/all.min.css'}}">
-    <script src="{{ BASE_URL. 'public/js/plugin.js'}}"></script>
+    <link rel="stylesheet" href="{{BASE_URL.'public/admin/plugins/fontawesome-free/css/all.min.css'}}">
+    <link rel="stylesheet" href="{{BASE_URL.'public/css/themify-icons.css'}}" />
 
+    <link rel="stylesheet" href="{{BASE_URL.'public/css/feather.css'}}" />
+    <link rel="stylesheet" href="{{BASE_URL.'public/css/style.css'}}" />
+
+    <script src="{{ BASE_URL. 'public/js/plugin.js'}}"></script>
     <script src="{{ BASE_URL. 'public/js/apexcharts.min.js'}}"></script> 
     <script src="{{ BASE_URL. 'public/js/chart.js'}}"></script> 
     <script src="{{ BASE_URL. 'public/js/scripts.js'}}"></script>
